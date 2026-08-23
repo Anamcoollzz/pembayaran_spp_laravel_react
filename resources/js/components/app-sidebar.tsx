@@ -1,5 +1,13 @@
 import { Link } from '@inertiajs/react';
-import { BookOpen, FolderGit2, LayoutGrid } from 'lucide-react';
+import {
+    CreditCard,
+    GraduationCap,
+    LayoutGrid,
+    PlusCircle,
+    Receipt,
+    Tag,
+    Users,
+} from 'lucide-react';
 import AppLogo from '@/components/app-logo';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
@@ -14,6 +22,10 @@ import {
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
+import { index as kelasIndex } from '@/routes/kelas';
+import { create as pembayaranCreate, index as pembayaranIndex } from '@/routes/pembayaran-spp';
+import { index as siswaIndex } from '@/routes/siswa';
+import { index as sppIndex } from '@/routes/spp';
 import type { NavItem } from '@/types';
 
 const mainNavItems: NavItem[] = [
@@ -22,18 +34,38 @@ const mainNavItems: NavItem[] = [
         href: dashboard(),
         icon: LayoutGrid,
     },
+    {
+        title: 'Transaksi SPP',
+        href: pembayaranIndex(),
+        icon: CreditCard,
+    },
+    {
+        title: 'Entri Pembayaran',
+        href: pembayaranCreate(),
+        icon: PlusCircle,
+    },
+    {
+        title: 'Master Siswa',
+        href: siswaIndex(),
+        icon: Users,
+    },
+    {
+        title: 'Master Kelas',
+        href: kelasIndex(),
+        icon: GraduationCap,
+    },
+    {
+        title: 'Tarif SPP',
+        href: sppIndex(),
+        icon: Tag,
+    },
 ];
 
 const footerNavItems: NavItem[] = [
     {
-        title: 'Repository',
-        href: 'https://github.com/laravel/react-starter-kit',
-        icon: FolderGit2,
-    },
-    {
-        title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits#react',
-        icon: BookOpen,
+        title: 'Riwayat Pembayaran',
+        href: pembayaranIndex(),
+        icon: Receipt,
     },
 ];
 
